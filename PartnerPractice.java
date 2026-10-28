@@ -15,8 +15,8 @@ public int[][] createArray(int xSize, int ySize){
 public int analyzeArr(int[][] arr){
   for(int i =0; i< arr.length();i++){
      for(int j =1; j< arr.length();j++){
-       if(arr[i][j]%2==0)
-		   if(arr[i][j+1]+arr[i][j-1]>17)
+       if(arr[i][j]%2==1)
+		   if(arr[i][j+1]+arr[i][j-1]+arr[i+1][j]+arr[i-1][j]>33)
 		   return arr[i][j];
      }
   }
