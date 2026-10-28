@@ -1,23 +1,29 @@
+import java.util.Scanner;
 public class PartnerPractice{
-
-  createArray(15,15)
-}
-public int[][] createArray(int xSize, int ySize){
-	int[][] array = new int[xSize][ySize];
+	
+public int[][] createArray(int xSize){
+	int[][] array = new int[xSize][xSize];
 
   for(int i =0; i<xSize; i++){
-    for(int j=0; i<ySize;j++){
-      array[i][j]= ((int)Math.random*10)+1;
-        }
+      array[i][i]= ((int)Math.random*10)+1;
   }
   return array;
 	} 
 public int analyzeArr(int[][] arr){
   for(int i =0; i< arr.length();i++){
-     for(int j =1; j< arr.length();j++){
-       if(arr[i][j]%2==1)
-		   if(arr[i][j+1]+arr[i][j-1]+arr[i+1][j]+arr[i-1][j]>33)
-		   return arr[i][j];
-     }
+       if(arr[i][i]%2==1){
+		   if(arr[i][i+1]+arr[i][i-1]+arr[i+1][i]+arr[i-1][i]>33)
+		   return arr[i][i];
+	   }
   }
+}
+	public static void main (String[]args){
+		Scanner scan = new Scanner(System.in);
+		System.out.println("pick square size")
+		int x = scan.nextInt();
+  		int[][] array = createArray(x,x);
+
+		System.out.println(analyzeArr(array));
+		
+	}
 }
